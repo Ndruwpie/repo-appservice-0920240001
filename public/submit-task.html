@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Tugas Praktikum</title>
+    <style>
+        body { font-family: Arial; margin: 40px; background: #f4f6f8; }
+        .container { background: white; padding: 24px; border-radius: 12px; max-width: 600px; margin: auto; }
+        h1 { color: #0078d4; }
+        label { font-weight: bold; display: block; margin-top: 12px; }
+        input { width: 100%; padding: 8px; margin-top: 4px;
+                border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background: #0078d4; color: white; padding: 10px 24px;
+                 border: none; border-radius: 4px; margin-top: 20px; cursor: pointer; }
+        button:hover { background: #005a9e; }
+        .link { margin-top: 16px; display: block; color: #0078d4; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Submit Tugas Praktikum</h1>
+        <form method="POST" action="/submit-task" enctype="multipart/form-data">
+            <label>NIM:</label>
+            <input type="text" name="nim" placeholder="Masukkan NIM" required>
+
+            <label>Nama:</label>
+            <input type="text" name="name" placeholder="Masukkan nama lengkap" required>
+
+            <label>Kelas:</label>
+            <input type="text" name="class" placeholder="Contoh: RPL 2B" required>
+
+            <label>Mata Kuliah:</label>
+            <input type="text" name="course" placeholder="Contoh: Komputasi Awan" required>
+
+            <label>File Tugas:</label>
+            <input type="file" name="file" accept=".pdf,.docx,.zip" required>
+
+            <button type="submit">📤 Submit Tugas</button>
+        </form>
+        <a class="link" href="/task-list">📋 Lihat Daftar Tugas</a>
+    </div>
+</body>
+</html>
