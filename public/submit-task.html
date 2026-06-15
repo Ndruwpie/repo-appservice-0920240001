@@ -2,42 +2,158 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Submit Tugas Praktikum</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Submit Tugas Praktikum 🌸</title>
     <style>
-        body { font-family: Arial; margin: 40px; background: #f4f6f8; }
-        .container { background: white; padding: 24px; border-radius: 12px; max-width: 600px; margin: auto; }
-        h1 { color: #0078d4; }
-        label { font-weight: bold; display: block; margin-top: 12px; }
-        input { width: 100%; padding: 8px; margin-top: 4px;
-                border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        button { background: #0078d4; color: white; padding: 10px 24px;
-                 border: none; border-radius: 4px; margin-top: 20px; cursor: pointer; }
-        button:hover { background: #005a9e; }
-        .link { margin-top: 16px; display: block; color: #0078d4; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe6f2, #ffd6eb, #ffeef8);
+            min-height: 100vh;
+            padding: 30px;
+            color: #5a3d4d;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.25);
+            border: 3px solid #ffc0cb;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff4fa3;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #d63384;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffb6d9;
+            border-radius: 12px;
+            font-size: 15px;
+            background: #fff8fb;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff69b4;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.25);
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #ff69b4, #ff85c1);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ff69b4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link:hover {
+            color: #d63384;
+        }
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            color: #c2185b;
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📚 Submit Tugas Praktikum</h1>
+        <h1>🎀 Submit Tugas Praktikum 🎀</h1>
+        <p class="subtitle">Sistem Pengumpulan Tugas Berbasis Azure Cloud</p>
+
         <form method="POST" action="/submit-task" enctype="multipart/form-data">
-            <label>NIM:</label>
-            <input type="text" name="nim" placeholder="Masukkan NIM" required>
 
-            <label>Nama:</label>
-            <input type="text" name="name" placeholder="Masukkan nama lengkap" required>
+            <div class="form-group">
+                <label>NIM</label>
+                <input type="text" name="nim" placeholder="Masukkan NIM" required>
+            </div>
 
-            <label>Kelas:</label>
-            <input type="text" name="class" placeholder="Contoh: RPL 2B" required>
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" name="name" placeholder="Masukkan nama lengkap" required>
+            </div>
 
-            <label>Mata Kuliah:</label>
-            <input type="text" name="course" placeholder="Contoh: Komputasi Awan" required>
+            <div class="form-group">
+                <label>Kelas</label>
+                <input type="text" name="class" placeholder="Contoh: RPL 2B" required>
+            </div>
 
-            <label>File Tugas:</label>
-            <input type="file" name="file" accept=".pdf,.docx,.zip" required>
+            <div class="form-group">
+                <label>Mata Kuliah</label>
+                <input type="text" name="course" placeholder="Contoh: Komputasi Awan" required>
+            </div>
+
+            <div class="form-group">
+                <label>File Tugas</label>
+                <input type="file" name="file" accept=".pdf,.docx,.zip" required>
+            </div>
 
             <button type="submit">📤 Submit Tugas</button>
         </form>
+
         <a class="link" href="/task-list">📋 Lihat Daftar Tugas</a>
+
+        <div class="footer">
+            💕 PraktikumSubmit - Azure Cloud Service 💕
+        </div>
     </div>
 </body>
 </html>
