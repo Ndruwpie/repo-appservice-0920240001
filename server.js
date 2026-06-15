@@ -83,9 +83,9 @@ app.get('/task-list', async (req, res) => {
                 <td>${task.name}</td>
                 <td>${task.class}</td>
                 <td>${task.course}</td>
-                <td>${task.status}</td>
-                <td>${task.submitted_at}</td>
-                <td><a href="${task.file_url}" target="_blank">Download</a></td>
+                <td><span class="badge">${task.status}</span></td>
+                <td>${new Date(task.submitted_at).toLocaleString('id-ID')}</td>
+                <td><a href="${task.file_url}" target="_blank">📥 Download</a></td>
             </tr>
         `).join('');
 
@@ -94,32 +94,144 @@ app.get('/task-list', async (req, res) => {
             <html lang="id">
             <head>
                 <meta charset="UTF-8">
-                <title>Daftar Tugas</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>🌸 Daftar Tugas Praktikum 🌸</title>
                 <style>
-                    body { font-family: Arial; margin: 40px; background: #f4f6f8; }
-                    .container { background: white; padding: 24px; border-radius: 12px; }
-                    h1 { color: #0078d4; }
-                    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-                    th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
-                    th { background-color: #0078d4; color: white; }
-                    tr:nth-child(even) { background-color: #f2f2f2; }
-                    a { color: #0078d4; }
-                    .btn { background: #0078d4; color: white; padding: 10px 20px;
-                           text-decoration: none; border-radius: 4px; display: inline-block; }
+                    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+                    body {
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        background: linear-gradient(135deg, #ffe6f2, #ffd6eb, #ffeef8);
+                        min-height: 100vh;
+                        padding: 30px;
+                        color: #5a3d4d;
+                    }
+
+                    .container {
+                        max-width: 1000px;
+                        margin: auto;
+                        background: white;
+                        border-radius: 25px;
+                        padding: 35px;
+                        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.25);
+                        border: 3px solid #ffc0cb;
+                    }
+
+                    h1 {
+                        text-align: center;
+                        color: #ff4fa3;
+                        margin-bottom: 8px;
+                    }
+
+                    .subtitle {
+                        text-align: center;
+                        color: #d63384;
+                        margin-bottom: 25px;
+                        font-size: 14px;
+                    }
+
+                    .btn {
+                        display: inline-block;
+                        padding: 12px 24px;
+                        background: linear-gradient(135deg, #ff69b4, #ff85c1);
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 15px;
+                        font-weight: bold;
+                        font-size: 14px;
+                        transition: 0.3s;
+                        margin-bottom: 20px;
+                    }
+
+                    .btn:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
+                    }
+
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-top: 10px;
+                    }
+
+                    th {
+                        background: linear-gradient(135deg, #ff69b4, #ff85c1);
+                        color: white;
+                        padding: 12px 10px;
+                        text-align: left;
+                        font-size: 14px;
+                    }
+
+                    th:first-child { border-radius: 10px 0 0 0; }
+                    th:last-child { border-radius: 0 10px 0 0; }
+
+                    td {
+                        padding: 10px;
+                        border-bottom: 1px solid #ffd6eb;
+                        font-size: 14px;
+                        color: #5a3d4d;
+                    }
+
+                    tr:nth-child(even) { background-color: #fff0f6; }
+
+                    tr:hover { background-color: #ffe6f2; }
+
+                    .badge {
+                        background: #fff0f6;
+                        color: #d63384;
+                        border: 1px solid #ffb6d9;
+                        padding: 4px 10px;
+                        border-radius: 20px;
+                        font-size: 12px;
+                        font-weight: bold;
+                    }
+
+                    td a {
+                        color: #ff69b4;
+                        text-decoration: none;
+                        font-weight: bold;
+                    }
+
+                    td a:hover { color: #d63384; }
+
+                    .empty {
+                        text-align: center;
+                        padding: 30px;
+                        color: #d63384;
+                        font-style: italic;
+                    }
+
+                    .footer {
+                        margin-top: 25px;
+                        text-align: center;
+                        color: #c2185b;
+                        font-size: 13px;
+                    }
                 </style>
             </head>
             <body>
                 <div class="container">
-                    <h1>📋 Daftar Tugas Praktikum</h1>
-                    <a class="btn" href="/submit-task">+ Submit Tugas Baru</a>
+                    <h1>🎀 Daftar Tugas Praktikum 🎀</h1>
+                    <p class="subtitle">Sistem Pengumpulan Tugas Berbasis Azure Cloud</p>
+
+                    <a class="btn" href="/submit-task">📤 Submit Tugas Baru</a>
+
                     <table>
                         <tr>
-                            <th>NIM</th><th>Nama</th><th>Kelas</th>
-                            <th>Mata Kuliah</th><th>Status</th>
-                            <th>Waktu Submit</th><th>File</th>
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>Kelas</th>
+                            <th>Mata Kuliah</th>
+                            <th>Status</th>
+                            <th>Waktu Submit</th>
+                            <th>File</th>
                         </tr>
-                        ${tableRows}
+                        ${tableRows || '<tr><td colspan="7" class="empty">🌸 Belum ada tugas yang dikumpulkan 🌸</td></tr>'}
                     </table>
+
+                    <div class="footer">
+                        💕 PraktikumSubmit - Azure Cloud Service 💕
+                    </div>
                 </div>
             </body>
             </html>
