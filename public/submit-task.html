@@ -3,123 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸 Submit Tugas Praktikum 🌸</title>
+    <title>Submit Tugas Praktikum</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ffe6f2, #ffd6eb, #ffeef8);
             min-height: 100vh;
-            padding: 30px;
-            color: #5a3d4d;
+            display: flex;
+            background: #f0f0ff;
         }
 
-        .container {
-            max-width: 600px;
-            margin: auto;
+        /* LEFT PANEL - Form */
+        .left-panel {
+            width: 45%;
             background: white;
-            border-radius: 25px;
-            padding: 35px;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.25);
-            border: 3px solid #ffc0cb;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 60px;
         }
 
-        h1 {
-            text-align: center;
-            color: #ff4fa3;
-            margin-bottom: 8px;
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #a78bfa;
+            border-radius: 50%;
+            margin-bottom: 15px;
         }
 
-        .subtitle {
+        h2 {
+            color: #7c6bb0;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 30px;
             text-align: center;
-            color: #d63384;
-            margin-bottom: 25px;
-            font-size: 14px;
         }
 
         .form-group {
-            margin-bottom: 18px;
+            width: 100%;
+            margin-bottom: 16px;
         }
 
-        label {
+        .form-group label {
             display: block;
+            color: #666;
+            font-size: 13px;
             margin-bottom: 6px;
-            font-weight: bold;
-            color: #d63384;
         }
 
-        input {
+        .form-group input {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ffb6d9;
-            border-radius: 12px;
-            font-size: 15px;
-            background: #fff8fb;
-            box-sizing: border-box;
-        }
-
-        input:focus {
+            padding: 11px 15px;
+            border: 1.5px solid #c4b5fd;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #555;
             outline: none;
-            border-color: #ff69b4;
-            box-shadow: 0 0 10px rgba(255, 105, 180, 0.25);
+            transition: 0.3s;
+            background: white;
         }
 
-        input[type="file"] {
-            padding: 10px;
+        .form-group input:focus {
+            border-color: #7c3aed;
+            box-shadow: 0 0 8px rgba(124, 58, 237, 0.2);
+        }
+
+        .form-group input[type="file"] {
+            padding: 8px 15px;
             cursor: pointer;
+            background: #faf5ff;
         }
 
-        button {
+        .btn-submit {
             width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #ff69b4, #ff85c1);
+            padding: 13px;
+            background: linear-gradient(135deg, #a78bfa, #f87171);
             color: white;
             border: none;
-            border-radius: 15px;
-            font-size: 16px;
-            font-weight: bold;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
             margin-top: 10px;
+            margin-bottom: 20px;
         }
 
-        button:hover {
+        .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
+            box-shadow: 0 8px 20px rgba(167, 139, 250, 0.5);
         }
 
-        .link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: #ff69b4;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .link:hover {
-            color: #d63384;
-        }
-
-        .footer {
-            margin-top: 25px;
-            text-align: center;
-            color: #c2185b;
+        .link-list {
+            color: #888;
             font-size: 13px;
         }
+
+        .link-list a {
+            color: #7c3aed;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .link-list a:hover { text-decoration: underline; }
+
+        /* RIGHT PANEL */
+        .right-panel {
+            width: 55%;
+            background: linear-gradient(135deg, #a78bfa 0%, #c084fc 40%, #f87171 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .right-panel::before {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-30%, -50%);
+        }
+
+        .right-panel::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+        }
+
+        .right-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: left;
+            max-width: 400px;
+        }
+
+        .right-content h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .right-content p {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 35px;
+        }
+
+        .btn-list {
+            display: inline-block;
+            padding: 12px 28px;
+            border: 2px solid white;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .btn-list:hover {
+            background: white;
+            color: #7c3aed;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .bubble-1 { width: 80px; height: 80px; bottom: 15%; right: 10%; }
+        .bubble-2 { width: 40px; height: 40px; top: 15%; right: 25%; }
+        .bubble-3 { width: 25px; height: 25px; bottom: 30%; left: 15%; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎀 Submit Tugas Praktikum 🎀</h1>
-        <p class="subtitle">Sistem Pengumpulan Tugas Berbasis Azure Cloud</p>
 
-        <form method="POST" action="/submit-task" enctype="multipart/form-data">
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+        <div class="logo-circle"></div>
+        <h2>Submit Tugas Praktikum</h2>
+
+        <form method="POST" action="/submit-task" enctype="multipart/form-data" style="width:100%">
 
             <div class="form-group">
                 <label>NIM</label>
@@ -146,14 +230,31 @@
                 <input type="file" name="file" accept=".pdf,.docx,.zip" required>
             </div>
 
-            <button type="submit">📤 Submit Tugas</button>
+            <button type="submit" class="btn-submit">📤 Submit Tugas</button>
         </form>
 
-        <a class="link" href="/task-list">📋 Lihat Daftar Tugas</a>
+        <p class="link-list">
+            Lihat semua tugas? <a href="/task-list">Daftar Tugas</a>
+        </p>
+    </div>
 
-        <div class="footer">
-            💕 PraktikumSubmit - Azure Cloud Service 💕
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+
+        <div class="right-content">
+            <h1>Praktikum<br>Submit</h1>
+            <p>
+                Sistem pengumpulan tugas praktikum berbasis 
+                Microsoft Azure Cloud Service. Upload file tugasmu 
+                dengan mudah, cepat, dan aman menggunakan 
+                teknologi cloud modern.
+            </p>
+            <a href="/task-list" class="btn-list">📋 Lihat Daftar Tugas</a>
         </div>
     </div>
+
 </body>
 </html>
